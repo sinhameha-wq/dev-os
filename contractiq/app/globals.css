@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Inter Display', 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-grey-25 text-grey-900;
+    font-family: var(--font-sans);
+  }
+
+  /* Design system: letter-spacing is always 0 — never add tracking */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: 0;
+    color: #070A0E;
+    line-height: 1.4;
+  }
+
+  /* Design system: text secondary is Grey 500 */
+  .text-secondary {
+    color: #4A4C4F;
+  }
+}
+
+@layer components {
+  /* Design system: page padding 96px vertical, 112px horizontal (scaled to Tailwind: py-24 = 96px, px-28 = 112px) */
+  .page-container {
+    @apply mx-auto max-w-7xl px-28 py-24;
+  }
+
+  /* Design system: H5 = 24px, weight 500, line-height 32px, letter-spacing 0 */
+  .section-heading {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 0;
+    color: #070A0E;
+  }
+
+  /* Design system: flat depth — no decorative shadows */
+  .card-base {
+    @apply rounded-lg border border-grey-100 bg-white;
+  }
+}
+
+/* PDF viewer container */
+.pdf-viewer-wrapper .react-pdf__Page {
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+
+.pdf-viewer-wrapper .react-pdf__Page__canvas {
+  max-width: 100%;
+  height: auto !important;
+}
